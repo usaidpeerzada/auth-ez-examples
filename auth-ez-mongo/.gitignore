@@ -7,15 +7,14 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-auth-ez-mongo/.env
-auth-ez-sql/.env
-auth-ez-prisma/.env
-
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 ./auth-ez-mongo/node_modules
 ./auth-ez-sql/node_modules
 ./auth-ez-prisma/node_modules
+./auth-ez-mongo/.env
+./auth-ez-sql/.env
+./auth-ez-prisma/.env
 # Runtime data
 pids
 *.pid
