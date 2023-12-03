@@ -1,0 +1,23 @@
+{
+  "name": "auth-ez-examples",
+  "version": "1.0.0",
+  "description": "auth-ez implementation on SQL, MongoDB ORMs and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usaidpeerzada/auth-ez-examples.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usaidpeerzada/auth-ez-examples/issues"
+  },
+  "homepage": "https://github.com/usaidpeerzada/auth-ez-examples#readme",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

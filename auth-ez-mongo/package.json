@@ -1,20 +1,23 @@
 {
   "dependencies": {
+    "auth-ez": "file:../../auth-ez-ts",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.2",
-    "node-fetch": "^3.3.2",
+    "node-fetch": "^2.7.0",
     "resend": "^2.0.0"
   },
   "name": "auth-ez-mongo",
   "version": "1.0.0",
   "description": "auth-ez implementation for mongoDB using mongoose orm.",
-  "main": "index.js",
+  "main": "index.ts",
   "devDependencies": {
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
     "typescript": "^5.3.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc -p tsconfig.json"
   },
   "author": "usaid",
   "license": "MIT"
