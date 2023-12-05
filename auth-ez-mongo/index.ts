@@ -1,14 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
-// import { hashPassword, comparePassword } from "ez_auth";
 import { User } from "./user.model.ts";
 import { Config } from "./types.ts";
-// import { Resend } from "resend";
-// const { fetch, Headers } = require("node-fetch");
+import { Resend } from "resend";
+import fetch, { Headers } from "node-fetch";
 import { CreateMongoAuthController, EmailService } from "auth-ez";
-// const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY, Headers, fetch);
 const app = express();
-const port = 3001;
+const port = 3000;
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost:27017/test";
 
 mongoose.connect(mongoUrl);
@@ -36,13 +35,13 @@ const config: Config = {
   // email options for sending verification email and reset password link - this is optional but if enabled all other params inside are required.
   emailOptions: {
     enableEmail: true,
-    emailType: "resend",
-    // emailSdk: resend,
+    emailType: "",
+    emailSdk: resend,
     forgotPasswordSubject: "",
     forgotPasswordBody: "",
     verificationMailSubject: "Sending custom subejct from config",
     verificationMailBody: `here is the body bro ${mongoUrl}`,
-    emailService: new EmailService(this),
+    // emailService: new EmailService(this),
   },
 };
 
