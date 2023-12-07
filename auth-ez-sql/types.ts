@@ -45,9 +45,9 @@ export type Config = {
     logoutRoute?: string;
   };
   emailOptions?: {
-    enableEmail?: boolean;
-    emailType?: string;
-    emailSdk?: any;
+    enableEmail: boolean;
+    emailType: string;
+    emailSdk: any;
     forgotPasswordSubject?: string;
     forgotPasswordBody?: string;
     verificationMailSubject?: string;

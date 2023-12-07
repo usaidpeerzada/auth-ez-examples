@@ -1,4 +1,5 @@
 import { Sequelize, DataTypes } from "sequelize";
+import { IUser } from "./types";
 const sequelize = new Sequelize(
   "postgres://usaid:yourpassword@localhost:5432/testdb"
 );

@@ -26,7 +26,7 @@ const config: Config = {
   routeNames: {
     // loginWithEmailRoute: "/test-post-requests",
     loginWithUsernameRoute: "/my-user-route",
-    signupRoute: "/sign-up",
+    // signupRoute: "/sign-up",
     // forgotPasswordRoute,
     // resetPasswordRoute,
     // signupRoute,

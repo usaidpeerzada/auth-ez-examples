@@ -47,7 +47,7 @@ export type Config = {
   emailOptions?: {
     enableEmail: boolean;
     emailType: string;
-    emailSdk?: any;
+    emailSdk: any;
     forgotPasswordSubject?: string;
     forgotPasswordBody?: string;
     verificationMailSubject?: string;
