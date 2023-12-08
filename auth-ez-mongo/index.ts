@@ -5,8 +5,8 @@ import { Config } from "./types.ts";
 import { Resend } from "resend";
 import fetch, { Headers } from "node-fetch";
 import { CreateMongoAuthController, EmailService } from "auth-ez";
-const resend = new Resend(process.env.RESEND_API_KEY, Headers, fetch);
 const app = express();
+const resend = new Resend(process.env.RESEND_API_KEY, Headers, fetch);
 const port = 3000;
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost:27017/test";
 
