@@ -1,12 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
-import { User } from "./user.model.ts";
-import { Config } from "./types.ts";
+import { User } from "./user.model";
+import { Config } from "./types";
 import { Resend } from "resend";
 import fetch, { Headers } from "node-fetch";
-import { CreateMongoAuthController, EmailService } from "auth-ez";
+import { CreateMongoAuthController } from "auth-ez";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app = express();
-const resend = new Resend(process.env.RESEND_API_KEY, Headers, fetch);
+const resend = new Resend(process.env.RESEND_API_KEY);
 const port = 3000;
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost:27017/test";
 
@@ -25,7 +29,7 @@ const config: Config = {
   //    just add them as specified below:
   routeNames: {
     // loginWithEmailRoute: "/test-post-requests",
-    loginWithUsernameRoute: "/my-user-route",
+    // loginWithUsernameRoute: "/my-user-route",
     // signupRoute: "/sign-up",
     // forgotPasswordRoute,
     // resetPasswordRoute,
@@ -35,7 +39,7 @@ const config: Config = {
   // email options for sending verification email and reset password link - this is optional but if enabled all other params inside are required.
   emailOptions: {
     enableEmail: true,
-    emailType: "",
+    emailType: "resend",
     emailSdk: resend,
     forgotPasswordSubject: "",
     forgotPasswordBody: "",
@@ -55,3 +59,5 @@ app.get("/auth/protected-route", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+export default app;

@@ -1,8 +1,8 @@
 import fetch from "node-fetch";
 
 let token = "";
-async function loginCall() {
-  const data = { email: "usaidpeerzada@gmail.com", password: "easyauth" };
+async function loginEmailCall() {
+  const data = { email: "test@test.com", password: "test123" };
   const response = await fetch("http://localhost:3000/auth/login-with-email", {
     method: "post",
     body: JSON.stringify(data),
@@ -12,7 +12,22 @@ async function loginCall() {
   token = body.token;
   console.log(body);
 }
-console.log(token);
+
+async function loginUsernameCall() {
+  const data = { username: "tester", password: "test123" };
+  const response = await fetch(
+    "http://localhost:3000/auth/login-with-username",
+    {
+      method: "post",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+  const body = await response.json();
+  token = body.token;
+  console.log(body);
+}
+
 async function protectedRouteCall() {
   const response = await fetch("http://localhost:3000/auth/protected-route", {
     method: "GET",
@@ -27,11 +42,11 @@ async function protectedRouteCall() {
 
 async function signUpCall() {
   const data = {
-    email: "usaidpeerzada@gmail.com",
-    password: "toin",
-    username: "email",
+    email: "test@test.com",
+    password: "test123",
+    username: "tester",
   };
-  const response = await fetch("http://localhost:3000/auth/sign-up", {
+  const response = await fetch("http://localhost:3000/auth/register", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -74,8 +89,9 @@ async function resetPassword() {
   const body = await response.json();
   console.log("resetPassword() ", body);
 }
-// loginCall();
+// loginEmailCall();
+loginUsernameCall();
 // protectedRouteCall();
 // signUpCall();
-forgotPassword();
+// forgotPassword();
 // resetPassword();
