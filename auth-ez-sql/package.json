@@ -11,7 +11,7 @@
   "author": "usaid",
   "license": "MIT",
   "dependencies": {
-    "auth-ez": "file:../../auth-ez-ts",
+    "auth-ez": "^1.0.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "node-fetch": "^2.7.0",
