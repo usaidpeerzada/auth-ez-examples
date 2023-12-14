@@ -1,15 +1,15 @@
 import express from "express";
 import { User } from "./user.model.ts";
 import { Config } from "./types.ts";
-import { Resend } from "resend";
-import fetch, { Headers } from "node-fetch";
+// import { Resend } from "resend";
 import { Sequelize } from "sequelize";
-import { CreateSqlAuthController, Types } from "auth-ez";
-// import SqlAuthController from "./sqlAuthController.ts";
-const resend = new Resend(process.env.RESEND_API_KEY, Headers, fetch);
+import { CreateSqlAuthController, Types } from "auth-ez-local";
+// const resend = new Resend(process.env.RESEND_API_KEY);
+import dotenv from "dotenv";
+
+dotenv.config();
 const app = express();
 const port = 3000;
-
 const sequelize = new Sequelize(
   "postgres://usaid:yourpassword@localhost:5432/testdb"
 ); // Example for postgres
@@ -42,16 +42,16 @@ const config: Config = {
   // logoutRoute,
   //   },
   // email options for sending verification email and reset password link - this is optional but if enabled all other params inside are required.
-  emailOptions: {
-    enableEmail: true,
-    emailType: "resend",
-    emailSdk: resend,
-    forgotPasswordSubject: "",
-    forgotPasswordBody: "",
-    verificationMailSubject: "Sending custom subejct from config",
-    verificationMailBody: `here is the body bro`,
-    // emailService: new EmailService(this),
-  },
+  // emailOptions: {
+  //   enableEmail: true,
+  //   emailType: "resend",
+  //   emailSdk: resend,
+  //   forgotPasswordSubject: "",
+  //   forgotPasswordBody: "",
+  //   verificationMailSubject: "Sending custom subject from config",
+  //   // verificationMailBody: `here is the body`,
+  //   // emailService: new EmailService(this),
+  // },
 };
 const sqlAuthController = new CreateSqlAuthController(config);
 app.use("/auth", sqlAuthController.getRouter());

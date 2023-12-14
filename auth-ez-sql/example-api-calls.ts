@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 let token = "";
 async function loginCall() {
-  const data = { email: "usaidpeerzada@gmail.com", password: "easyauth" };
+  const data = { email: "test@test.com", password: "easyauth" };
   const response = await fetch("http://localhost:3000/auth/login-with-email", {
     method: "post",
     body: JSON.stringify(data),
@@ -27,8 +27,8 @@ async function protectedRouteCall() {
 
 async function signUpCall() {
   const data = {
-    email: "usaidpeerzada@gmail.com",
-    password: "toin",
+    email: "test@test.com",
+    password: "test123",
     username: "email",
   };
   const response = await fetch("http://localhost:3000/auth/register", {
@@ -44,7 +44,7 @@ async function signUpCall() {
 
 async function forgotPassword() {
   const data = {
-    email: "usaidpeerzada@gmail.com",
+    email: "test@test.com",
   };
   const response = await fetch("http://localhost:3000/auth/forgot-password", {
     method: "POST",

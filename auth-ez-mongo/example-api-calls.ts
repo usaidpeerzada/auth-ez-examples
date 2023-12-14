@@ -59,7 +59,7 @@ async function signUpCall() {
 
 async function forgotPassword() {
   const data = {
-    email: "usaidpeerzada@gmail.com",
+    email: "test@test.com",
   };
   const response = await fetch("http://localhost:3000/auth/forgot-password", {
     method: "POST",
