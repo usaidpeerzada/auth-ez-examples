@@ -1,6 +1,6 @@
 import express from "express";
-import { User } from "./user.model.ts";
-import { Config } from "./types.ts";
+import { User } from "./user.model";
+import { Config } from "./types";
 // import { Resend } from "resend";
 import { Sequelize } from "sequelize";
 import { CreateSqlAuthController, Types } from "auth-ez-local";
@@ -24,6 +24,7 @@ const config: Config = {
   // Send user model to the auth-ez controller:
   User,
   enableLogs: true,
+  enableRefreshToken: true,
   // you can pass your own password hashing function, by default we use bycript.hash with saltRounds = 10
   //   hashPassword: () => {},
   // options to send to jwt:

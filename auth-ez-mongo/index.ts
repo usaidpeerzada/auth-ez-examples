@@ -1,10 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
-import { User } from "./user.model";
+import { User } from "./user.model.ts";
 import { Config } from "./types";
 // import { Resend } from "resend";
-// import { CreateMongoAuthController } from "auth-ez-local";
-import { CreateMongoAuthController } from "auth-ez";
+import { CreateMongoAuthController, Types } from "auth-ez-local";
+// import { CreateMongoAuthController } from "auth-ez";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 
@@ -12,7 +12,7 @@ dotenv.config();
 
 const app = express();
 // const resend = new Resend(process.env.RESEND_API_KEY);
-const port = 3000;
+const port = 3001;
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost:27017/test";
 
 mongoose.connect(mongoUrl);
@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
     pass: "",
   },
 });
-const config: Config = {
+const config: Types.Config = {
   // Send user model to the auth-ez controller:
   User: User,
   enableLogs: true,
@@ -58,6 +58,7 @@ const config: Config = {
     // verificationMailBody: `here is the body bro ${mongoUrl}`,
     // emailService: myMailService,
   },
+  enableRefreshToken: true,
 };
 
 const authController = new CreateMongoAuthController(config);

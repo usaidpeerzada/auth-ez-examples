@@ -43,6 +43,7 @@ export type Config = {
     forgotPasswordRoute?: string;
     resetPasswordRoute?: string;
     logoutRoute?: string;
+    refreshToken?: string;
   };
   emailOptions?: {
     enableEmail: boolean;
@@ -54,4 +55,5 @@ export type Config = {
     verificationMailBody?: string;
     emailService?: EmailService;
   };
+  enableRefreshToken?: boolean;
 };
